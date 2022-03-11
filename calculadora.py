@@ -3,34 +3,47 @@
 
 print("\n******************* Python Calculator *******************\n")
 print("Selecione o número da operação desejada:\n")
-print("1 = Soma")
-print("2 = Subtração")
-print("3 = Multiplicação")
-print("4 = Divisão")
+print(" 1- Soma\n 2- Subtração\n 3- Multiplicação\n 4- Divisão\n")
+
+'''Criar funções para as operações'''
+def somar(arg1,arg2):
+	return arg1+arg2
+
+def subtracao(arg1,arg2):
+	return arg1-arg2
+	
+def multpli(arg1,arg2):
+	return arg1*arg2
+
+def divisao(arg1,arg2):
+	return arg1/arg2
 
 while True:
 	try:
-		operacao = int(input("\nDigite sua opção (1/2/3/4): "))
-		num1 = float(input("\nDigite o primeiro número: "))
-		num2 = float(input("\nDigite o segundo número: "))
-		
-		if operacao == 1:
-			print(num1, "+", num2,"=", num1 + num2)
-		elif operacao == 2:
-			print(num1, "-", num2,"=",num1 - num2)
-		elif operacao == 3:
-			print(num1, "*", num2,"=",num1 * num2)
-		elif operacao == 4:
-			print(num1, "/", num2,"=",num1/num2)
-			
-	
+		operacao = str(input("Digite sua opção (1/2/3/4):"))
+
+		if int(operacao) in (1,2,3,4):
+			num1 = float(input("Digite o primeiro número:"))
+
+			num2 = float(input("Digite o segundo número:"))
+
+			if int(operacao) == 1:
+				print(num1,"+",num2,"=",somar(num1,num2))
+			elif int(operacao) == 2:
+				print(num1,"-",num2,"=",subtracao(num1,num2))
+			elif int(operacao) == 3:
+				print(num1,"*",num2,"=",multpli(num1,num2))
+			elif int(operacao) == 4:
+				print(num1,"/",num2,"=",divisao(num1,num2))
+			continue
 	except:
-		print("Operação Inválida! Tente novamente.")
+		print("Opção Inválida, tente novamente!")
 		continue
 	else:
-		if operacao not in (1,2,3,4):
+		if int(operacao) not in (1,2,3,4):
 			print("Opção Invalida! Digite uma opção valida dentre as abaixo:")
 			continue
 		else:
 			break
-
+			
+	
